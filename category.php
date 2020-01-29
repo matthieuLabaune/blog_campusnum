@@ -3,11 +3,11 @@ include 'config.php';
 include 'functions.php';
 
 $category_name = $_GET['name'];
-//debug($_GET);
+//debug($category_name);
 $articles_par_categorie = categoryArticle($bdd, $category_name);
 //debug($articles_par_categorie);
 ?>
-
+<a href="./">Accueil</a>
  <h1>Articles de la catégorie "<i><?=$category_name?></i>"</h1>
 
 <?php

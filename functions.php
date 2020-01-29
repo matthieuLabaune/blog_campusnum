@@ -83,5 +83,18 @@ FROM articles
 INNER JOIN correspondance ON articles.id = correspondance.articles_id 
 INNER JOIN categories ON correspondance.categories_id = categories.id 
 WHERE nom="' . $categorie.'"');
-    return $query;
+    $reponse = $query->fetchALL(PDO::FETCH_ASSOC);
+    return $reponse;
+}
+
+//Fonction getCategory() pour trouver la catégorie d'un article depuis l'id de l'article
+function getCategorie(PDO $ma_bdd, $id_article)
+{
+    $query = $ma_bdd->query('SELECT nom 
+FROM categories 
+INNER JOIN correspondance ON categories.id = correspondance.categories_id
+INNER JOIN articles ON correspondance.articles_id = articles.id
+WHERE articles.id=' . $id_article);
+    $reponse = $query->fetch(PDO::FETCH_ASSOC);
+    return $reponse;
 }
