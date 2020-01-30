@@ -39,3 +39,7 @@ if (!empty($_POST)) {
     <button type="submit">Valider l'article</button>
 </form>
 
+<hr>
+
+<a href="./">Accueil</a>
+

@@ -7,10 +7,11 @@ $donnees_article = articleView($bdd, $num_article);
 
 if (isset($_POST)) {
     $article_delete = articleDelete($bdd, $num_article);
-    if (!$article_delete){
-        $error_delete = $bdd->errorInfo()[2];
-    } if(isset($error_delete)){
-        $error_delete_message = "Attention, vous ne pouvez pas supprimer cet article.";
+    if ($article_delete) {
+        header('Location: /blog/', true, 302);
+        exit;
+    } else {
+        echo 'dont work, the base of donnéeee dont work, shit ! sorry';
     }
 }
 
@@ -29,4 +30,4 @@ if (isset($_POST)) {
     <input type="submit" value="Supprimer"/>
 </form>
 
-<strong><?= $error_delete_message; ?></strong>
+<?//=$error_delete ?>
